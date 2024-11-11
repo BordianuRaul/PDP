@@ -38,6 +38,18 @@ public class Matrix {
         return column;
     }
 
+    public void setElement(int row, int column, int value) {
+        this.data.get(row).set(column, value);
+    }
+
+    public int getNrRows() {
+        return nrRows;
+    }
+
+    public int getNrColumns() {
+        return nrColumns;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
