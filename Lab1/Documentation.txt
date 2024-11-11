@@ -1,0 +1,16 @@
+	The Inventory class, contains a ConcurrentHashMap<Product, Integer>, where Product is an object containg the name and price of the product
+and Integer the number of such products on stock. Therefore invetory contains another Map<Product, Lock> locks, which assigns to every Product(key) an Lock(value),
+such that when a thread needs to make changes to the invetory(subtract the items that were sold) it will lock only the entry corresponding to that specific product,
+and not the whole Inventory.
+
+	Another lock is made on the whole Invetory when check validity is performed.
+	
+Results:
+
+1 thread around 383.74 ms
+2 threads around 239.90 ms
+4 threads around 170.09 ms
+6 threads around 151.25 ms 
+12 threads around 139.26 ms
+
+For a 6 core processor performance tends to plateu after 6 threads.  
